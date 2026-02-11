@@ -1,3 +1,8 @@
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Simple MongoDB connection - get string from mongodb.com
-mongoose.connect('mongodb+srv://dp_db_user:g5UbJ35nGRzipxCL@cluster0.cr2k7qy.mongodb.net/?appName=Cluster0/bugtracker')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'));
 
 // Simple Schema
